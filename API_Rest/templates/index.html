@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>API</title>
+</head>
+<body ><div align="center">
+<h1> Especificações </h1>
+
+<h2> <a href="{% url 'videos' %}">POST /videos </a>  </h2>
+
+<p> Body
+{
+    "duration": 200.3,
+    "timestamp": 1478192204000 }
+ </p>
+
+
+<h3>Onde:</h3>
+<p>-Duration tempo de duração do vídeo</p>
+<p>-Timestamp horário que o video foi adicionado. (UTC time zone)</p>
+
+<h3>Resposta</h3>
+<p>-Status 201 em caso de sucesso</p>
+<p>-Status 204 caso o timestamp informado for mais antigo que 60 segundos.</p>
+
+
+<h2>DELETE /videos</h2>
+
+<p>Endpoint responsável por limpar a lista de todos videos inseridos.</p>
+
+<h3>Resposta</h3>
+<p>*204 - todos os vídeos removidos com sucesso.</p>
+
+
+<h2> <a href="{% url 'statistics' %}">GET /statistics </a>  </h2>
+
+<p>Este é o principal endpoint, ele retorna as estatísticas baseadas apenas nos últimos 60 segundos.</p>
+<h3>Resposta</h3>
+{
+    "sum": 1000,     "avg": 100,     "max": 200,     "min": 50,     "count": 10 }
+
+   </div>
+</body>
+</html>
