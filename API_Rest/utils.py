@@ -6,9 +6,6 @@ dic = {}
 listaDuration = []
 lista_timestamp = []
 
-
-
-
 def Diferenca_Em_Segundo(dt2, dt1):
     Diferenca = dt2 - dt1
     return Diferenca.days * 24 * 3600 + Diferenca.seconds
@@ -22,7 +19,6 @@ def Criar_lista_video(duracao, timestamp):
     dic = {"duration": listaDuration, "timestamp": lista_timestamp}
 
     return dic
-
 
 def Statistica():
     Timestamp_atual = datetime.fromtimestamp(time.time(), tz=timezone('America/Sao_Paulo'))

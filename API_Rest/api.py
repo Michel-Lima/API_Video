@@ -1,13 +1,11 @@
 import time
 from datetime import datetime
-
 from pytz import timezone
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from .utils import Criar_lista_video, Statistica, limpar, Diferenca_Em_Segundo
-
 
 # classe Responsável por retorna as statistica dos videos
 class Video_statistics(APIView):
