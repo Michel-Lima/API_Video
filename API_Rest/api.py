@@ -34,7 +34,7 @@ class VideoViewSet(APIView):
         # chama o metodo da classe
         limpar()
 
-        return Response(status=status.HTTP_204_NO_CONTENT)
+        return Response({'Todos os video delecado comsucesso'},status=status.HTTP_204_NO_CONTENT)
 
     def post(self, request):
 
