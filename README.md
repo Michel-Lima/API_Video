@@ -8,7 +8,7 @@ API Video
 * Ative o virtualenv.
 * Instale as dependências.
 * Rode o servidor
-```
+
 git clone hhttps://github.com/Michel-Lima/API_Video.git
 cd API_Video
 python-m venv .venv
@@ -21,8 +21,7 @@ python manage.py runserver
 
 python manage.py test API_Rest
 
-Demo https://apivideo-289416.rj.r.appspot.com/statistics/
-
+##  Demo  (https://apivideo-289416.rj.r.appspot.com/statistics/)
 Especificações
 POST /videos
 Body { "duration": 200.3, "timestamp": 1478192204000 }
