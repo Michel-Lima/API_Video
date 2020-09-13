@@ -41,3 +41,10 @@ def Statistica():
 def limpar():
     global dic
     dic.clear()
+
+
+
+def Diferenca_Em_Segundo(dt2, dt1):
+    Diferenca = dt2 - dt1
+    return Diferenca.days * 24 * 3600 + Diferenca.seconds
+
