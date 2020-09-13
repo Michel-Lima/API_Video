@@ -34,34 +34,40 @@ class VideoViewSet(APIView):
 
     def post(self, request):
 
-        # captura os dados enviado via post e atribuir em uma variavel
-        get_arg1 = request.data['duration']
-        get_arg2 = request.data['timestamp']
-        # Data baseada no timestamp atual
-        Timestamp_atual = datetime.fromtimestamp(time.time(), tz=timezone('America/Sao_Paulo'))
-        # data baseada no timestamp passada via post
-        Timesptamp_get = datetime.fromtimestamp(float(get_arg2),
-                                                tz=timezone('America/Sao_Paulo'))
+        try:
+            # captura os dados enviado via post e atribuir em uma variavel
+            get_arg1 = request.data['duration']
+            get_arg2 = request.data['timestamp']
+            # Data baseada no timestamp atual
+            Timestamp_atual = datetime.fromtimestamp(time.time(), tz=timezone('America/Sao_Paulo'))
+            # data baseada no timestamp passada via post
+            Timesptamp_get = datetime.fromtimestamp(float(get_arg2),
+                                                    tz=timezone('America/Sao_Paulo'))
 
-        # valido se o timestamp é menor que 60 segundo
-        if Diferenca_Em_Segundo(Timestamp_atual, Timesptamp_get) >= 60:
+            # valido se o timestamp é menor que 60 segundo
+            if Diferenca_Em_Segundo(Timestamp_atual, Timesptamp_get) <= 60:
 
-            # se for menor então chamado funcao criar_lista de video
+                # se for menor então chamado funcao criar_lista de video
 
-            Criar_lista_video(
-                get_arg1, get_arg2
+                Criar_lista_video(
+                    get_arg1, get_arg2
 
-            )
+                )
 
-
-            # caso o o timestamp seja menor que 60 segundo retorna o status 201
-            return Response(request.data, status=status.HTTP_201_CREATED)
-
-
+                # caso o o timestamp seja menor que 60 segundo retorna o status 201
+                return Response(request.data, status=status.HTTP_201_CREATED)
 
 
 
-        else:
-            # caso o o timestamp seja maior que 60 segundo retorna o status 204
-            return Response(Diferenca_Em_Segundo(Timestamp_atual, Timesptamp_get),
+
+
+            else:
+                # caso o o timestamp seja maior que 60 segundo retorna o status 204
+                return Response('',
+                                status=status.HTTP_204_NO_CONTENT)
+        except ValueError:
+
+            return Response('',
                             status=status.HTTP_204_NO_CONTENT)
+
+
