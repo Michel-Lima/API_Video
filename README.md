@@ -17,6 +17,11 @@ pip install -r requirements.txt
  
 python manage.py runserver
 
+## Para rodar os testes unitário:
+
+python manage.py test API_Rest
+
+Demo https://apivideo-289416.rj.r.appspot.com/statistics/
 
 Especificações
 POST /videos
