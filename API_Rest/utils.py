@@ -20,6 +20,12 @@ def Criar_lista_video(duracao, timestamp):
     dic = {"duration": listaDuration, "timestamp": lista_timestamp}
 
     return dic
+
+def limpar():
+    global dic
+    for k in dic:
+        dic[k].clear()
+
 # retorna os dados dos video dos ultimo 60 segundos
 def Statistica():
     Timestamp_atual = datetime.fromtimestamp(time.time(), tz=timezone('America/Sao_Paulo'))
@@ -44,6 +50,7 @@ def Statistica():
                     pass
 
             else:
+                limpar()
                 resultado = {
                     "sum": 0,
                     'avg': 0,
@@ -63,9 +70,5 @@ def Statistica():
     return resultado
 
 # limpa o dicionario.usado no classe api metodo delete.
-def limpar():
-    global dic
-    for k in dic:
-        dic[k].clear()
 
 
